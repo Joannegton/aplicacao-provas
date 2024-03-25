@@ -74,6 +74,10 @@
                 if (tempoRestante <= 0) {
                     clearInterval(timerInterval);
                     alert('Tempo esgotado!');
+                    // Limpar conteúdo da página ao finalizar o timer
+                    containerDados.innerHTML = '';
+                    pdfViewer.innerHTML = '';
+                    document.getElementById('tempoRestante').textContent = '';
                 } else {
                     tempoRestante--;
                 }
