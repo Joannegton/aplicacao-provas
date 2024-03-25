@@ -3,6 +3,7 @@ body{
     background-color: rgba(0, 0, 0, 0.712);
     width: 80%;
     margin: auto;
+    font-family: Arial, sans-serif;
 }
 
 .container_dados{
@@ -10,6 +11,7 @@ body{
     display: flex;
     justify-content: space-around;    
     padding: 5px;
+    margin-bottom: 20px;
 }
 
 input{
@@ -29,6 +31,7 @@ input{
     align-items: center;
     margin-top: 5px;
     padding: 5px;
+    margin-bottom: 20px;
 }
 
 #pdfContainer{
@@ -36,4 +39,17 @@ input{
     margin: auto;
     display: flex;
     justify-content: center;
+}
+
+.timerContainer {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background-color: rgba(158, 8, 8, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.timer {
+    font-size: 18px;
 }
