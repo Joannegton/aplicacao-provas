@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atividade</title>
+    <link rel="stylesheet" href="style.css">
     <!-- Inclua os arquivos necessários do PDF.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
 </head>
 <body>
-    <div>
+    <div class="container_dados">
         <label for="nome">Nome:</label>
         <input type="text" id="nome">
         <label for="serie">Série:</label>
         <input type="text" id="serie">
 
+    </div>
+
+    <div class="container_gerar">
         <h2>Gerar prova</h2>
         <p>Clique no botão para gerar sua prova</p>
         <button id="gerarProva">Gerar Prova</button>
-
-        <!-- Div para renderizar o PDF -->
-        <div id="pdfContainer"></div>
     </div>
+    
+    <div id="pdfContainer"></div>
 
     <script>
         document.getElementById('gerarProva').addEventListener('click', async function() {
@@ -50,6 +53,10 @@
                 pdfViewer.appendChild(canvas);
                 await page.render({ canvasContext: context, viewport: viewport }).promise;
             }
+
+            // Ocultar o botão após clicar
+            var botaoGerar = document.getElementById('gerarProva');
+            botaoGerar.style.display = 'none';
 
             // Enviar dados do aluno para a sua API
             var dadosAluno = {
