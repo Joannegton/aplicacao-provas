@@ -32,7 +32,7 @@ input{
 }
 
 #pdfContainer{
-    width: 90%;
+    width: 90vw;
     margin: auto;
     display: flex;
     justify-content: center;
