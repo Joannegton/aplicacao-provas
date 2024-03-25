@@ -1,17 +1,25 @@
 body{
     margin: 0;
     background-color: rgba(0, 0, 0, 0.712);
-
+    width: 80%;
+    margin: auto;
 }
 
 .container_dados{
     background-color: aliceblue;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;    
     padding: 5px;
 }
 
+input{
+    width: 70%;
+    margin: 0 5px;
+}
+
+.inputSerie{
+    width: 30px;
+}
 
 
 .container_gerar{
@@ -23,3 +31,8 @@ body{
     padding: 5px;
 }
 
+#pdfContainer{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}

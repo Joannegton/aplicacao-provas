@@ -9,12 +9,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
 </head>
 <body>
-    <div class="container_dados">
+    <div class="container_dados" id="containerDados">
         <label for="nome">Nome:</label>
         <input type="text" id="nome">
-        <label for="serie">Série:</label>
-        <input type="text" id="serie">
-
+        <label for="serie">Série: 2º</label>
+        <input class="inputSerie" type="text" id="serie">
     </div>
 
     <div class="container_gerar">
@@ -31,6 +30,7 @@
             var serieAluno = document.getElementById('serie').value;
 
             var numeroAleatorio = Math.floor(Math.random() * 6) + 1;
+            alert('Número gerado: ' + numeroAleatorio);
 
             // Pega o nome do arquivo da prova de acordo com o número aleatório
             var nomeProva = 'prova' + numeroAleatorio + '.pdf';
@@ -53,9 +53,12 @@
                 await page.render({ canvasContext: context, viewport: viewport }).promise;
             }
 
-            // Ocultar o botão após clicar
+            // Ocultar o botão e alterar os dados de entrada após clicar
             var botaoGerar = document.getElementById('gerarProva');
             botaoGerar.style.display = 'none';
+
+            var containerDados = document.getElementById('containerDados');
+            containerDados.innerHTML = 'Nome: ' + nomeAluno + ' Turma: ' + serieAluno;
 
             // Enviar dados do aluno para a sua API
             var dadosAluno = {
@@ -72,10 +75,15 @@
                 body: JSON.stringify(dadosAluno),
             })
             .then(response => {
-                if (!response.ok) {
+                if (response.ok) {
+                    alert('Dados enviados com sucesso!');
+                } else {
                     alert('Erro ao enviar os dados.');
                 }
             })
+            .catch(error => {
+                console.error('Erro ao enviar os dados:', error);
+            });
         });
     </script>
 </body>
