@@ -16,10 +16,11 @@
         <input class="inputSerie" type="text" id="serie">
     </div>
 
-    <div class="container_gerar">
+    <div class="container_gerar" id="containerGerar">
         <h2>Gerar prova</h2>
         <p>Clique no botão para gerar sua prova</p>
         <button id="gerarProva">Gerar Prova</button>
+        <div id="tempoRestante">Tempo restante: 45:00</div>
     </div>
     
     <div id="pdfContainer"></div>
@@ -53,11 +54,27 @@
             }
 
             // Ocultar o botão e alterar os dados de entrada após clicar
-            var containergerar = document.getElementById('container_gerar');
-            containergerar.style.display = 'none';
+            var containerGerar = document.getElementById('containerGerar');
+            containerGerar.style.display = 'none';
 
             var containerDados = document.getElementById('containerDados');
             containerDados.innerHTML = 'Nome: ' + nomeAluno + ' Turma: 2' + serieAluno;
+
+            // Timer
+            var tempoRestante = 45 * 60; // Tempo em segundos (45 minutos)
+            var timerInterval = setInterval(function() {
+                var minutos = Math.floor(tempoRestante / 60);
+                var segundos = tempoRestante % 60;
+                var tempoFormatado = minutos.toString().padStart(2, '0') + ':' + segundos.toString().padStart(2, '0');
+                document.getElementById('tempoRestante').textContent = 'Tempo restante: ' + tempoFormatado;
+
+                if (tempoRestante <= 0) {
+                    clearInterval(timerInterval);
+                    alert('Tempo esgotado!');
+                } else {
+                    tempoRestante--;
+                }
+            }, 1000);
 
             // Enviar dados do aluno para a sua API
             var dadosAluno = {
