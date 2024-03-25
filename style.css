@@ -9,7 +9,7 @@ body{
 .container_dados{
     background-color: aliceblue;
     display: flex;
-    justify-content: space-around;    
+    justify-content: center;    
     padding: 5px;
     margin-bottom: 20px;
     
