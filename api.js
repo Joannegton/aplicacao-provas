@@ -6,6 +6,7 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
+app.use('/provas', express.static(path.join(__dirname, 'provas')));
 // Middleware para lidar com solicitações JSON
 app.use(express.json());
 app.use(cors());
@@ -44,6 +45,22 @@ app.post('/adicionarAluno', (req, res) => {
     }
 
     res.sendStatus(200);
+});
+
+// Rota para recuperar arquivos PDF da pasta 'provas'
+app.get('/recuperarProva/:nomeArquivo', (req, res) => {
+    const { nomeArquivo } = req.params;
+    const caminhoArquivo = path.join(__dirname, 'provas', nomeArquivo);
+
+    fs.readFile(caminhoArquivo, (err, data) => {
+        if (err) {
+            console.error('Erro ao ler o arquivo:', err);
+            res.status(500).send('Erro ao recuperar o arquivo PDF');
+        } else {
+            res.setHeader('Content-Type', 'application/pdf');
+            res.send(data);
+        }
+    });
 });
 
 app.listen(port, () => {
