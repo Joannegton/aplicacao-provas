@@ -54,11 +54,11 @@
             }
 
             // Ocultar o botão e alterar os dados de entrada após clicar
-            var botaoGerar = document.getElementById('gerarProva');
-            botaoGerar.style.display = 'none';
+            var containergerar = document.getElementById('container_gerar');
+            containergerar.style.display = 'none';
 
             var containerDados = document.getElementById('containerDados');
-            containerDados.innerHTML = 'Nome: ' + nomeAluno + ' Turma: ' + serieAluno;
+            containerDados.innerHTML = 'Nome: ' + nomeAluno + ' Turma: 2' + serieAluno;
 
             // Enviar dados do aluno para a sua API
             var dadosAluno = {
