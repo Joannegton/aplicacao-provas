@@ -1,3 +1,28 @@
 [
-
+  {
+    "nome": "Joyce Banaki",
+    "serie": "B",
+    "prova": 1
+  },
+  {
+    "nome": "Gustavo Augusto lopes de sousa lima",
+    "serie": "b",
+    "prova": 2
+  },
+  {
+    "nome": "LUIS ALFREDO",
+    "serie": "B",
+    "prova": 3
+  },
+  {
+    "nome": "Lucas Silva Reis",
+    "serie": "B",
+    "prova": 3
+  },
+ 
+  {
+    "nome": "Ana Cristina",
+    "serie": "B",
+    "prova": 1
+  }
 ]
