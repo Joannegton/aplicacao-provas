@@ -37,7 +37,7 @@
 
             // Pega o nome do arquivo da prova de acordo com o número aleatório
             var nomeProva = 'prova' + numeroAleatorio + '.pdf';
-            var caminhoProva = 'https://b13e-201-55-46-78.ngrok-free.app/recuperarProva/' + nomeProva;
+            var caminhoProva = ' https://5970-201-55-46-78.ngrok-free.app/recuperarProva/' + nomeProva;
 
             // Carrega e exibe o PDF
             var loadingTask = pdfjsLib.getDocument(caminhoProva);
@@ -90,7 +90,7 @@
                 prova: numeroAleatorio
             };
 
-            fetch('https://2649-201-55-46-78.ngrok-free.app/adicionarAluno', {
+            fetch(' https://5970-201-55-46-78.ngrok-free.app/adicionarAluno', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
